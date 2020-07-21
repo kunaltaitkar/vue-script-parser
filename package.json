@@ -1,0 +1,30 @@
+{
+  "name": "vue-script-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunaltaitkar/vue-script-parser.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-parser",
+    "vue-script",
+    "vue",
+    "script",
+    "javascript",
+    "vue",
+    "code",
+    "parser"
+  ],
+  "author": "Kunal Taitkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kunaltaitkar/vue-script-parser/issues"
+  },
+  "homepage": "https://github.com/kunaltaitkar/vue-script-parser#readme"
+}
