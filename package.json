@@ -1,5 +1,5 @@
 {
-  "name": "vue-script-parser",
+  "name": "vue-script-ast-parser",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,10 @@
   },
   "keywords": [
     "vue",
+    "ast",
+    "vue-script-ast-parser",
     "vue-parser",
+    "vue-script-parser",
     "vue-script",
     "vue",
     "script",

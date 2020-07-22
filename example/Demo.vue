@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import VueScriptParser from './plugin/index'
+import VueScriptParser from '../index'
 export default {
   data() {
     return {

@@ -1,7 +1,8 @@
-import Data from './data'
-import Methods from './methods'
-import Mounted from './mounted'
-import Imports from './imports'
+import Data from './modules/data'
+import Methods from './modules/methods'
+import Mounted from './modules/mounted'
+import Imports from './modules/imports'
+
 class VueScriptParser {
     constructor(vueScript = '') {
         //load imports
