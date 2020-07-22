@@ -5,6 +5,10 @@ import Imports from './modules/imports'
 
 class VueScriptParser {
     constructor(vueScript = '') {
+
+        //set original script
+        this.script = vueScript
+
         //load imports
         let importsProcessor = new Imports(vueScript)
         this.imports = importsProcessor.imports
@@ -20,6 +24,13 @@ class VueScriptParser {
         //load methods
         let methodsProcessor = new Methods(vueScript)
         this.methods = methodsProcessor.methods
+        
+    }
+    addVariable () {
+        
+    }
+    removeVariable () {
+        
     }
 }
 

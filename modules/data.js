@@ -2,10 +2,10 @@
 import Vue from 'vue'
 class Data {
     constructor(vueScript = '') {
-        this.data = this.setData(vueScript)
+        this.data = this.dataReader(vueScript)
     }
 
-    setData (vueScript = '') {
+    dataReader (vueScript = '') {
         let dataRegx = /data\s*\(\s*\)\s*\{\s*return\s*{([^]*)}/g
         let processedData = this.extractAndUpdateData(vueScript, dataRegx)
 

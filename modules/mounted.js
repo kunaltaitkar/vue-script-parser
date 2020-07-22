@@ -2,9 +2,9 @@ import { scriptSectionProcessing } from './common'
 class Mounted {
     constructor(vueScript) {
         let regx = /mounted\s*\(\s*\)\s*{([^]*)}/g
-        this.mounted = this.extractAndUpdateMounted(regx, vueScript)
+        this.mounted = this.mountedReader(regx, vueScript)
     }
-    extractAndUpdateMounted (regx, vueScript) {
+    mountedReader (regx, vueScript) {
         let newScript = ''
         let matchMounted = vueScript.match(regx)
         if (!matchMounted) {
