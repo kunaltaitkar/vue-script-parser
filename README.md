@@ -1,10 +1,11 @@
 # vue-script-parser
 
-This package can be used to parse vue script section.
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=kunaltaitkar.vue-script-parser)
+
+This package can be used to parse vue script section and it provides an interface to add, update and delete entities of different life cycles hooks of VueJS.
 
 
 ## Installation
-
 ``` 
 npm install vue-script-ast-parser 
 ```
@@ -24,20 +25,23 @@ export default {
     methods: {
         parseCode() {
             let code = `
-                        import Vue from 'vue
-                        import myComponent from 'myComponent'
-                        export default {
-                            data() {
-                              return {
-                                  name: 'Kunal'
-                              }
-                            },
-                            methods: {
-                              test() {
-                                  console.log('this is test method')
-                              },
-                            },
-                        }`
+                import Vue from 'vue
+                import myComponent from 'myComponent'
+                export default {
+                  data() {
+                    return {
+                      name: 'Kunal'
+                    }
+                  },
+                  mounted() {
+                    console.log('this is mounted')
+                  }
+                  methods: {
+                    test(args1,args2) {
+                      console.log('this is test method')
+                    },
+                  },
+                }`
             let instance = new VueScriptParser(code)
             console.log(instance)
         }
