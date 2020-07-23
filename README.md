@@ -89,14 +89,14 @@ export default {
 
 ``` 
 let instance = new VueScriptParser(code)
-instace.addImpoort(importStatement) 
+instance.addImport(importStatement) 
 ```
 
 ### To remove import from imports
 
 ```
 let instance = new VueScriptParser(code)
-instace.removImport(importStatement)
+instance.removeImport(importStatement)
 ```
 
 ## Data
@@ -105,14 +105,14 @@ instace.removImport(importStatement)
 
 ``` 
 let instance = new VueScriptParser(code)
-instace.addData(variableName,value) 
+instance.addData(variableName,value) 
 ```
 
 ### To remove variable from data
 
 ```
 let instance = new VueScriptParser(code)
-instace.removeData(variableName) 
+instance.removeData(variableName) 
 ```
 
 ## Mounted
@@ -121,7 +121,7 @@ instace.removeData(variableName)
 
 ``` 
 let instance = new VueScriptParser(code)
-instace.addMounted(mountedBody) 
+instance.addMounted(mountedBody) 
 ```
 
 ## Methods
@@ -130,14 +130,14 @@ instace.addMounted(mountedBody)
 
 ``` 
 let instance = new VueScriptParser(code)
-instace.addMethod(name,body,args) 
+instance.addMethod(name,body,args) 
 ```
 
 ### To remove method from methods
 
 ```
 let instance = new VueScriptParser(code)
-instace.removeMethod(methodName)
+instance.removeMethod(methodName)
 ```
 
 
