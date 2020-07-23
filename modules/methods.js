@@ -2,7 +2,7 @@ import { scriptSectionProcessing } from './common'
 
 class Methods {
     constructor(vueScript = '') {
-        this.methods = this.methodsReader(vueScript)
+        this.config = this.methodsReader(vueScript)
     }
     methodsReader (vueScript = '') {
         let regx = /methods\s*:\s*{([^]*)}/g

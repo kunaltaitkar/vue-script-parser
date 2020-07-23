@@ -1,6 +1,6 @@
 class Imports {
     constructor(vueScript = '') {
-        this.imports = this.importsReader(vueScript) || []
+        this.config = this.importsReader(vueScript) || []
     }
     importsReader (vueScript) {
         return vueScript.match(/import .*/g)
