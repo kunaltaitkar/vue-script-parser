@@ -9,6 +9,8 @@
     <button @click="addMounted">Add mounted</button>
     <button @click="parseCode">Parse</button>
     <button @click="downloadScript()">Download Script</button>
+    <button @click="addMethod">Add method</button>
+    <button @click="removeMethod">Remove method</button>
       <p align="center">Input</p>
       <textarea
         cols="91"
@@ -39,7 +41,7 @@ export default {
           return {}
         },
         mounted() {console.log(1)},
-        methods: {}
+        methods: {save(a,b) {console.log('this is method')}}
       }`,
       output: '{}',
       instance: '',
@@ -82,6 +84,15 @@ export default {
       this.instance.addMounted(this.mountedBody)
       this.input = this.instance.script
       this.mountedBody = ''
+    },
+    addMethod() {
+      this.instance.addMethod('test', "console.log('this is test method')", "args1,arg2")
+      this.instance.addMethod('test2', "console.log('this is test 2 method')")
+      this.input = this.instance.script
+    },
+    removeMethod() {
+      this.instance.removeMethod('test2')
+      this.input = this.instance.script
     }
   },
 }
