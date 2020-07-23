@@ -1,6 +1,7 @@
 
 
 const pattern = {
+    importsRegex: /import .*/g,
     dataRegex: /data\s*\(\s*\)\s*\{\s*return\s*{([^]*)}/g,
     mountedRegex: /mounted\s*\(\s*\)\s*{([^]*)}/g,
     methodsRegex: /methods\s*:\s*{([^]*)}/g

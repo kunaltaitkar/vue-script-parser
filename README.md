@@ -2,7 +2,7 @@
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=kunaltaitkar.vue-script-parser)
 
-This package can be used to parse vue script section and it provides an interface to add, update and delete entities of different life cycles hooks of VueJS.
+This package is used to parse vue script section and it provides an interface to add, update and delete entities of different life cycles hooks of VueJS.
 
 
 ## Installation
@@ -78,4 +78,23 @@ export default {
   ]
 }
 ```
+
+## Data
+
+### To add new variable in data 
+
+``` 
+let instance = new VueScriptParser(code)
+instace.addData('country','INDIA')
+```
+
+#### Output
+
+```
+
+```
+
+
+
+
 

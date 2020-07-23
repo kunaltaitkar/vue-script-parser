@@ -7,25 +7,54 @@ import { pattern } from './modules/constant'
 class VueScriptParser {
     constructor(vueScript = '') {
 
-        //set original script
+        // set original script
         this.script = vueScript
 
-        //load imports
+        // load imports
+        this.imports = this.importsReader()
 
-
-        //load data
+        // load data
         this.data = this.dataReader()
 
-
-        //load mounted
+        // load mounted
         this.mounted = this.mountedReader()
 
-
-        //load methods
+        // load methods
         this.methods = this.methodsReader()
 
     }
+    // to read imports from given script and parse
+    importsReader () {
+        return this.script.match(pattern.importsRegex) || []
+    }
+    // to add new import statement
+    addImport (statement = '') {
+        if (!statement) {
+            return
+        }
 
+        (this.imports || []).push(statement)
+
+        let importStr = '';
+
+        (this.imports || []).forEach((imp) => {
+            importStr += imp + '\n'
+        })
+
+        this.script = this.script.replace(pattern.importsRegex, importStr)
+        this.imports = this.importsReader() || []
+
+    }
+    // to remove import from given script
+    removeImport (statement) {
+        if (!statement) {
+            return
+        }
+
+        this.script = this.script.replace(statement, '')
+        this.imports = this.importsReader() || []
+    }
+    // to read data section from given script and  parses
     dataReader () {
         let processedData = extractAndUpdateData(this.script, pattern.dataRegex)
 
@@ -47,7 +76,7 @@ class VueScriptParser {
 
         return result
     }
-
+    // to add new variable in data section of given script
     addData (key, value) {
         let processedData = extractAndUpdateData(this.script, pattern.dataRegex)
 
@@ -77,9 +106,9 @@ class VueScriptParser {
             pattern.dataRegex,
             script
         )
-
+        this.data = this.dataReader() || []
     }
-
+    // to remove variable from data section of given script
     removeData (key) {
 
         let processedData = extractAndUpdateData(this.script, pattern.dataRegex)
@@ -110,9 +139,10 @@ class VueScriptParser {
             pattern.dataRegex,
             script
         )
-
+        this.data = this.dataReader() || []
 
     }
+    // to read mounted section body from given script
     mountedReader () {
 
         let newScript = ''
@@ -127,7 +157,7 @@ class VueScriptParser {
 
         return newScript
     }
-
+    // to add/update mounted body in given script
     addMounted (body) {
 
         let updatedVueScript = extractAndUpdateMounted(
@@ -139,8 +169,9 @@ class VueScriptParser {
         if (updatedVueScript) {
             this.script = updatedVueScript
         }
+        this.mounted = this.mountedReader() || ''
     }
-
+    // to read methods section from given script and parse
     methodsReader () {
         let matchMethods = this.script.match(pattern.methodsRegex)
         if (!matchMethods) {
@@ -156,7 +187,7 @@ class VueScriptParser {
         return methodsData || []
 
     }
-
+    // to add new method in given script
     addMethod (name = '', body = '', args = '') {
 
         let newMethod = {
@@ -190,8 +221,9 @@ class VueScriptParser {
             methodsString.substring(lastIndex, methodsString.length)
 
         this.script = this.script.replace(pattern.methodsRegex, updatedMethods)
+        this.methods = this.methodsReader() || []
     }
-
+    // to remove method from given script
     removeMethod (name = '') {
 
         let matchMethods = this.script.match(pattern.methodsRegex)
@@ -241,6 +273,7 @@ class VueScriptParser {
             methodsString.substring(lastIndex, methodsString.length)
 
         this.script = this.script.replace(pattern.methodsRegex, updatedMethodsData)
+        this.methods = this.methodsReader() || []
     }
 }
 

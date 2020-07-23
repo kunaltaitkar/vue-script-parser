@@ -11,6 +11,8 @@
     <button @click="downloadScript()">Download Script</button>
     <button @click="addMethod">Add method</button>
     <button @click="removeMethod">Remove method</button>
+    <button @click="addImport">Add import</button>
+    <button @click="removeImport">Remove import</button>
       <p align="center">Input</p>
       <textarea
         cols="91"
@@ -36,7 +38,9 @@ import VueScriptParser from '../index'
 export default {
   data() {
     return {
-      input: `export default {
+      input: `
+      import a from 'a'
+      export default {
         data() {
           return {}
         },
@@ -68,6 +72,7 @@ export default {
         key: '',
         val:''
       }
+      this.updateJSON()
     },
     removeVariable() {
       this.instance.removeData(this.variable.key)
@@ -76,6 +81,7 @@ export default {
         key: '',
         val:''
       }
+      this.updateJSON()
     },
     downloadScript() {
       alert(this.instance.script)
@@ -84,15 +90,31 @@ export default {
       this.instance.addMounted(this.mountedBody)
       this.input = this.instance.script
       this.mountedBody = ''
+      this.updateJSON()
     },
     addMethod() {
       this.instance.addMethod('test', "console.log('this is test method')", "args1,arg2")
       this.instance.addMethod('test2', "console.log('this is test 2 method')")
       this.input = this.instance.script
+      this.updateJSON()
     },
     removeMethod() {
       this.instance.removeMethod('test2')
       this.input = this.instance.script
+      this.updateJSON()
+    },
+    addImport() {
+      this.instance.addImport("import c from 'c'")
+      this.input = this.instance.script
+      this.updateJSON()
+    },
+    removeImport() {
+      this.instance.removeImport("import c from 'c'")
+      this.input = this.instance.script
+      this.updateJSON()
+    },
+    updateJSON() {
+      this.output = JSON.stringify(this.instance, undefined, 2)
     }
   },
 }
