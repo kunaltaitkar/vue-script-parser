@@ -4,8 +4,11 @@
 
 This package is used to parse vue script section and it provides an interface to add, update and delete entities of different life cycles hooks of VueJS.
 
+  
 
 ## Installation
+
+### [NPM](https://www.npmjs.com/package/vue-script-ast-parser)
 ``` 
 npm install vue-script-ast-parser 
 ```
@@ -79,20 +82,66 @@ export default {
 }
 ```
 
+
+## Imports
+
+### To add new import
+
+``` 
+let instance = new VueScriptParser(code)
+instace.addImpoort(importStatement) 
+```
+
+### To remove import from imports
+
+```
+let instance = new VueScriptParser(code)
+instace.removImport(importStatement)
+```
+
 ## Data
 
 ### To add new variable in data 
 
 ``` 
 let instance = new VueScriptParser(code)
-instace.addData('country','INDIA')
+instace.addData(variableName,value) 
 ```
 
-#### Output
+### To remove variable from data
 
 ```
+let instance = new VueScriptParser(code)
+instace.removeData(variableName) 
+```
+
+## Mounted
+
+### To add/updated in given script 
+
+``` 
+let instance = new VueScriptParser(code)
+instace.addMounted(mountedBody) 
+```
+
+## Methods
+
+### To add new method in methods
+
+``` 
+let instance = new VueScriptParser(code)
+instace.addMethod(name,body,args) 
+```
+
+### To remove method from methods
 
 ```
+let instance = new VueScriptParser(code)
+instace.removeMethod(methodName)
+```
+
+
+
 
 
 
